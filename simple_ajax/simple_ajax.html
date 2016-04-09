@@ -1,0 +1,35 @@
+﻿<!doctype html>
+<html>
+<head>
+	<title>simple_ajax.html</title>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" type="image/x-icon" href="/a/img/icons/fav.ico" />
+	<script	type="text/javascript" src="/a/script/jquery-git1.js"></script>
+	<script	type="text/javascript">
+	$(document).ready(function()
+	{
+		$("button").click(function()
+		{
+			var details = 0;
+			$.ajax
+			({
+				url: "simple_ajax.php",
+				data: { me :  'me' },
+				dataType: "json",
+				type: "post",
+				async: false,
+				success: function(data)
+				{
+					details = data;
+				}
+			});
+			alert(details);
+			for(val in details)alert(details[val]);
+		});
+	});
+	</script>
+</head>
+<body>
+	<button style="cursor: pointer;">click me</button>
+</body>
+</html>
